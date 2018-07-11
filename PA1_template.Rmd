@@ -97,7 +97,7 @@ for (i in seq_along(missing_rows)){
 ## (with missing data filled in)
 total_steps_daily_filled <- filled_data %>%
   group_by(date) %>%
-  summarise(total = sum(steps, na.rm = TRUE))
+  summarise(total = sum(steps))
 
 ## Histogram of total number of steps per day
 ## (with missing data filled in)
@@ -107,11 +107,11 @@ qplot(total, data = total_steps_daily_filled,
       main = "Filled data")
 
 ## Calculate and report mean & median total number of steps per day
-mean_steps_daily_filled <- mean(total_steps_daily_filled$total, na.rm = TRUE)
+mean_steps_daily_filled <- mean(total_steps_daily_filled$total)
 print(paste0("MEAN total number of steps per day (rounded, filled data): ",
              round(mean_steps_daily_filled,0)))
 
-median_steps_daily_filled <- median(total_steps_daily_filled$total, na.rm = TRUE)
+median_steps_daily_filled <- median(total_steps_daily_filled$total)
 print(paste0("MEDIAN total number of steps per day (rounded, filled data): ",
              round(median_steps_daily_filled,0)))
 
